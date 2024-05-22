@@ -1,11 +1,8 @@
 {% load static %}
-
-<div class="container" style="background-color: red;">
-    {% block header %}
-    {% endblock header %}
-    <div class="row justify-content-center">
-        <div class="col-4 text-center">
-            <img src="{% static 'img/OnlyFlans.png' %}" alt="logo" class="img-fluid mx-auto d-block">
-        </div>
-    </div>
-</div>
+<header class="py-3 mb-4 border-bottom">
+  <div class="container d-flex flex-wrap justify-content-center">
+    <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+      <img src="{% static 'img/OnlyFlans.png' %}" alt="logo" class="img-fluid" width="150">
+    </a>
+  </div>
+</header>
