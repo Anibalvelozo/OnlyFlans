@@ -9,3 +9,8 @@ def acerca(request):
 
 def bienvenido(request):
     return render(request, 'welcome.html', {})
+
+
+def home(request):
+    flanes = Flan.objects.filter(is_private=False)
+    return render(request, 'home.html', {'flanes': flanes})
