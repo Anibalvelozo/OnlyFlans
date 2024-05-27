@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Flan
 
+
 # Create your views here.
 def indice(request):
     flanes= Flan.objects.all()
