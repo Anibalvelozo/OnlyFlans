@@ -1,24 +1,18 @@
 {% extends 'base.html' %}
 
-{% block title %}Inicio a OnlyFlans{% endblock title %}
 {% block content %}
-<div class="text-center">
-  <h1>Bienvenido a OnlyFlans</h1>
-  <p class="lead">La mejor plataforma de fans de flan en el mundo.</p>
-</div>
-<div class="container mt-4">
-    <div class="row">
-        {% for flan in flanes %}
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="{{ flan.image_url }}" class="card-img-top" alt="{{ flan.name }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ flan.name }}</h5>
-                        <p class="card-text">{{ flan.description }}</p>
-                    </div>
-                </div>
+<h1>Flanes Públicos</h1>
+<div class="row">
+    {% for flan in flanes %}
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <img src="{{ flan.image_url }}" class="card-img-top" alt="{{ flan.name }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ flan.name }}</h5>
+                <p class="card-text">{{ flan.description }}</p>
             </div>
-        {% endfor %}
+        </div>
     </div>
+    {% endfor %}
 </div>
-{% endblock content %}
+{% endblock %}
