@@ -1,14 +1,16 @@
 from django.shortcuts import render, redirect
 from .models import Flan, ContactForm
+from django.contrib.auth.decorators import login_required
 from .forms import ContactFormModelForm
 
 def index(request):
     flanes = Flan.objects.filter(is_private=False)
     return render(request, 'index.html', {'flanes': flanes})
 
+@login_required
 def bienvenido(request):
-    flanes = Flan.objects.filter(is_private=True)
-    return render(request, 'welcome.html', {'flanes': flanes})
+    flanes_privados = Flan.objects.filter(is_private=True)
+    return render(request, 'bienvenido.html', {'flanes': flanes_privados})
 
 def acerca(request):
     return render(request, 'about.html')
