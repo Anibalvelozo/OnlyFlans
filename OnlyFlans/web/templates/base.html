@@ -18,6 +18,14 @@
     {% block nav %}  
       {% include 'navbar.html' %} 
     {% endblock nav %}
+    
+    {% if user.is_authenticated %}
+    <div class="container mt-4">
+        <div class="alert alert-info" role="alert">
+            Bienvenido, <strong>{{ user.get_username }}</strong>
+        </div>
+    </div>
+    {% endif %}
       
     <div class="container mt-4 mb-4" style="background-color: white;">
       {% block content %}{% endblock content %}

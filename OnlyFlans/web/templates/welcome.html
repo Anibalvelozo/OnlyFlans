@@ -1,23 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Flanes Privados</h1>
-<div class="row">
+<div class="jumbotron bg-success text-white">
+    <h1>Flanes Privados</h1>
+</div>
 
-    <div class="alert alert-success">
-        <h1>Bienvenido, {{ user.get_username }}</h1>
-        <ul>
-
-    {% for flan in flanes %}
-    <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-            <img src="{{ flan.image_url }}" class="card-img-top" alt="{{ flan.name }}">
-            <div class="card-body">
-                <h5 class="card-title">{{ flan.name }}</h5>
-                <p class="card-text">{{ flan.description }}</p>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="alert alert-info" role="alert">
+                Bienvenido, <strong>{{ user.get_username }}</strong>
             </div>
         </div>
     </div>
-    {% endfor %}
+    <div class="row">
+        {% for flan in flanes %}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="{{ flan.image_url }}" class="card-img-top" alt="{{ flan.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ flan.name }}</h5>
+                    <p class="card-text">{{ flan.description }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
