@@ -5,15 +5,8 @@
     <h1>Flanes Privados</h1>
 </div>
 
-<div class="container mt-4">
-    <div class="row">
-        <div class="col-12">
-            <div class="alert alert-info" role="alert">
-                Bienvenido, <strong>{{ user.get_username }}</strong>
-            </div>
-        </div>
-    </div>
-    <div class="row">
+
+    <div class="row mt-4">
         {% for flan in flanes %}
         <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
