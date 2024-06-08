@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .models import Flan, ContactForm
 from django.contrib.auth.decorators import login_required
 from .forms import ContactFormModelForm
+from django.contrib.auth import logout as auth_logout
+from django.contrib import messages
 
 def index(request):
     flanes = Flan.objects.filter(is_private=False)
@@ -27,3 +29,8 @@ def contacto(request):
 
 def exito(request):
     return render(request, 'exito.html')
+
+def custom_logout(request):
+    auth_logout(request)
+    messages.success(request, "Has cerrado sesión exitosamente.")
+    return redirect('index')

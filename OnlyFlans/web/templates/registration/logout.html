@@ -5,4 +5,8 @@
     <h2>Has cerrado sesión</h2>
     <p>Gracias por visitar nuestro sitio web.</p>
 </div>
+<script>
+    alert("Has cerrado sesión exitosamente.");
+    window.location.href = "{% url 'index' %}";
+</script>
 {% endblock %}
