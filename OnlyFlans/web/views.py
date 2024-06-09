@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Flan, ContactForm
 from django.contrib.auth.decorators import login_required
 from .forms import ContactFormModelForm
@@ -25,6 +25,7 @@ def contacto(request):
             return redirect('exito')
     else:
         form = ContactFormModelForm()
+
     return render(request, 'contact.html', {'form': form})
 
 def exito(request):
@@ -33,4 +34,11 @@ def exito(request):
 def custom_logout(request):
     auth_logout(request)
     messages.success(request, "Has cerrado sesión exitosamente.")
+    return redirect('index')
+
+@login_required
+def like_flan(request, flan_id):
+    flan = get_object_or_404(Flan, pk=flan_id)
+    flan.likes += 1
+    flan.save()
     return redirect('index')

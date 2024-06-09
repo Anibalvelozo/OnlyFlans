@@ -2,9 +2,26 @@
 
 {% block content %}
 <h1>Contacto</h1>
-<form method="post">
+<form method="post" class="form-horizontal">
     {% csrf_token %}
-    {{ form.as_p }}
+    {% load widget_tweaks %}
+
+    <div class="mb-3">
+        <label for="customer_name" class="form-label">Nombre</label>
+        {{ form.customer_name|add_class:"form-control" }}
+    </div>
+
+    <div class="mb-3">
+        <label for="customer_email" class="form-label">Email</label>
+        {{ form.customer_email|add_class:"form-control" }}
+    </div>
+
+    <div class="mb-3">
+        <label for="message" class="form-label">Mensaje</label>
+        {{ form.message|add_class:"form-control" }}
+    </div>
+
     <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
 {% endblock %}
+

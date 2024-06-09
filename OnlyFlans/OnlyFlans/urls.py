@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
-from web.views import index, bienvenido, acerca, contacto, exito, custom_logout
+from web.views import index, bienvenido, acerca, contacto, exito, custom_logout, like_flan
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -17,4 +17,7 @@ urlpatterns = [
 
     # Incluyendo las URLs por defecto de auth para que gestionen el resto
     path('accounts/', include('django.contrib.auth.urls')),
+
+    # Ruta para dar like a un flan
+    path('flan/<int:flan_id>/like/', like_flan, name='like_flan'),
 ]
